@@ -20,7 +20,7 @@ function Login() {
     if (loggedIn) {
       // Redirect the user to the test page
       // You can replace '/test' with the desired path
-      window.location.href = '/test';
+      window.location.href = '/profile';
     }
  
 
