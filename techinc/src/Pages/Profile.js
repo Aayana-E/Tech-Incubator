@@ -1,50 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { Auth, Hub } from 'aws-amplify';
-import awsConfig from '../backend/aws-exports';
-
-Auth.configure(awsConfig);
+import { useEffect, useState } from 'react';
+import { Auth } from 'aws-amplify';
 
 function Profile() {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchUserData() {
+    const fetchUserProfile = async () => {
       try {
-        const userData = await Auth.currentAuthenticatedUser();
-        setUser(userData);
+        const currentUser = await Auth.currentAuthenticatedUser();
+        setUser(currentUser);
       } catch (error) {
-        setError(error.message);
-      }
-    }
-
-    fetchUserData();
-  }, []);
-
-  useEffect(() => {
-    Hub.listen('auth', (data) => {
-      const { payload } = data;
-      if (payload.event === 'signOut') {
         setUser(null);
+        // Handle the error or redirect to the sign-in page
       }
-    });
+    };
+
+    fetchUserProfile();
   }, []);
 
   return (
     <div>
-      <h1>Profile</h1>
-      {error ? (
-        <p>{error}</p>
+      {user ? (
+        <div>
+          <h1>Welcome, {user.attributes.email}!</h1>
+          {/* Display the email */}
+          <p>Email: {user.attributes.email}</p>
+        </div>
       ) : (
-        user && (
-          <div>
-            <p>Username: {user.username}</p>
-            <p>Email: {user.attributes.email}</p>
-            <p>Address: {user.attributes.address}</p>
-            <p>Birthdate: {user.attributes.birthdate}</p>
-            {/* Add more attributes here */}
-          </div>
-        )
+        <p>Loading user profile...</p>
       )}
     </div>
   );

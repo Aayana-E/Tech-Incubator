@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-techincubator-dev-195841-authRole",
+      "UnauthRoleArn": "arn:aws:iam::225169026711:role/amplify-techincubator-dev-195841-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::225169026711:role/amplify-techincubator-dev-195841-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-techincubator-dev-195841-deployment",
+      "UnauthRoleName": "amplify-techincubator-dev-195841-unauthRole",
+      "StackName": "amplify-techincubator-dev-195841",
+      "StackId": "arn:aws:cloudformation:us-east-1:225169026711:stack/amplify-techincubator-dev-195841/8f8223d0-0721-11ee-9448-0e61235385e5",
+      "AmplifyAppId": "d2d10psozqa8x"
+    }
+  }
+}
