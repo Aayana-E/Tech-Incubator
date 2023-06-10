@@ -11,7 +11,7 @@ function Profile() {
         setUser(currentUser);
       } catch (error) {
         setUser(null);
-        // Handle the error or redirect to the sign-in page
+        //redirect to the sign-in page
       }
     };
 

@@ -9,13 +9,13 @@ function Login() {
     event.preventDefault();
 
     // Authenticate user and set loggedIn state to true
-    // You can replace this with your authentication logic
+    
     const isAuthenticated = true;
     if (isAuthenticated) {
       sessionStorage.setItem('isLoggedIn', 'true');
       console.log('Email:', email);
       console.log('Password:', password);
-      window.location.href = '/profile';
+      window.location.href = '/profile2';
     }
   };
 

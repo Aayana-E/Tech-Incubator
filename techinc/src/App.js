@@ -9,6 +9,8 @@ import Home from "./Pages/Home"
 import Signup from "./Pages/Signup"
 import Login from "./Pages/Login"
 import Profile from './Pages/Profile';
+import Profile2 from './Pages/Profile2';
+import CompanyProfile from "./Pages/CompanyProfile";
 
 import Test from "./Pages/test"
 
@@ -25,6 +27,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/test" element={<Test />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile2" element={<Profile2 />} />
+          <Route path="/CompanyProfile" element={<CompanyProfile />} />
+
+
         </Routes>
         </div>
     </Router>
