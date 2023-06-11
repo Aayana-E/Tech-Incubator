@@ -13,6 +13,7 @@ import Profile2 from './Pages/Profile2';
 import CompanyProfile from "./Pages/CompanyProfile";
 import UploadTask from "./Pages/UploadTask";
 import Tasks from "./Pages/Tasks";
+import Dashboard from "./Pages/Dashboard";
 
 import Test from "./Pages/test"
 
@@ -31,8 +32,11 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />
           <Route path="/CompanyProfile" element={<CompanyProfile />} />
-          <Route path="/CompanyProfile" element={<UploadTask />} />
-          <Route path="/CompanyProfile" element={<Tasks />} />
+          <Route path="/UploadTask" element={<UploadTask />} />
+          <Route path="/Tasks" element={<Tasks />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+
+
         </Routes>
         </div>
     </Router>
