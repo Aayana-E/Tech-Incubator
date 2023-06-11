@@ -11,6 +11,8 @@ import Login from "./Pages/Login"
 import Profile from './Pages/Profile';
 import Profile2 from './Pages/Profile2';
 import CompanyProfile from "./Pages/CompanyProfile";
+import UploadTask from "./Pages/UploadTask";
+import Tasks from "./Pages/Tasks";
 
 import Test from "./Pages/test"
 
@@ -29,8 +31,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />
           <Route path="/CompanyProfile" element={<CompanyProfile />} />
-
-
+          <Route path="/CompanyProfile" element={<UploadTask />} />
+          <Route path="/CompanyProfile" element={<Tasks />} />
         </Routes>
         </div>
     </Router>
