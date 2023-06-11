@@ -1,15 +1,14 @@
-import React from 'react';
-import '../Style/Profile.css'; 
+import React, { useState } from 'react';
+import '../Style/Profile.css';
+import 'firebase/compat/database';
 import firebaseConfig from '../backend/firebaseConfig';
 import { getDatabase, ref, push, set } from 'firebase/database';
-import { useState } from 'react';
-
+import firebase from 'firebase/compat/app';
 
 
 function UploadTask() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -23,16 +22,17 @@ function UploadTask() {
     const taskData = {
       title: title,
       description: description,
-      company: "Google" //replace with the company name depending on the session
+      company: "Google"
     };
 
-    const database = getDatabase(firebaseConfig);
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
 
     const newTaskRef = push(ref(database, 'tasks'));
     set(newTaskRef, taskData)
       .then(() => {
         console.log('Task uploaded successfully!');
-          })
+      })
       .catch((error) => {
         console.error('Error uploading task:', error);
       });
