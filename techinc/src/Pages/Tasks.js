@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebaseConfig from '../backend/firebaseConfig';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
+import "../Style/Tasks.css";
 import {
     MDBCard,
     MDBCardBody,

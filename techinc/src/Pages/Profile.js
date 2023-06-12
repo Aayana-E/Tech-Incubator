@@ -1,30 +1,58 @@
-import { useEffect, useState } from 'react';
-import { Auth } from 'aws-amplify';
+import React, { useEffect, useState } from 'react';
+import firebaseConfig from '../backend/firebaseConfig';
+import 'firebase/compat/database';
+import firebase from 'firebase/compat/app';
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const [userAttributes, setUserAttributes] = useState({});
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
+    const fetchUserAttributes = async () => {
       try {
-        const currentUser = await Auth.currentAuthenticatedUser();
-        setUser(currentUser);
+        const database = firebase.database();
+        const userRef = database.ref('users').child('userId'); // Replace 'userId' with the actual user ID
+        const snapshot = await userRef.once('value');
+        const attributes = snapshot.val();
+
+        if (attributes) {
+          setUserAttributes(attributes);
+        } else {
+          console.error('User attributes not found');
+        }
       } catch (error) {
-        setUser(null);
-        //redirect to the sign-in page
+        console.error('Error fetching user attributes:', error);
       }
     };
 
-    fetchUserProfile();
+    fetchUserAttributes();
   }, []);
 
   return (
     <div>
-      {user ? (
+      <h2>Profile</h2>
+      {Object.keys(userAttributes).length > 0 ? (
         <div>
-          <h1>Welcome, {user.attributes.email}!</h1>
-          {/* Display the email */}
-          <p>Email: {user.attributes.email}</p>
+          <h3>Attributes</h3>
+          <ul>
+            <li>
+              <strong>custom:Type:</strong> {userAttributes['custom:Type']}
+            </li>
+            <li>
+              <strong>email:</strong> {userAttributes.email}
+            </li>
+            <li>
+              <strong>name:</strong> {userAttributes.name}
+            </li>
+            <li>
+              <strong>picture:</strong> <img src={userAttributes.picture} alt="Profile Picture" />
+            </li>
+            <li>
+              <strong>sub:</strong> {userAttributes.sub}
+            </li>
+          </ul>
         </div>
       ) : (
         <p>Loading user profile...</p>

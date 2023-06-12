@@ -1,0 +1,74 @@
+.container {
+    max-width: 500px;
+    margin: 20px auto; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+.upload-task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.upload-task-container div {
+    margin-bottom: 10px;
+}
+  
+.upload-task-container label {
+    font-weight: bold;
+}
+  
+.upload-task-container input {
+    padding: 5px;
+}
+  
+.upload-task-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+  
+.upload-task-container button:hover {
+    background-color: #0056b3;
+}
+  
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px; /* Space above */
+}
+  
+.card-deck center {
+    width: 100%;
+}
+  
+.card-deck .card {
+    max-width: 15rem;
+    margin-bottom: 20px;
+}
+  
+.card-deck .card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.card-deck .card-text {
+    margin-bottom: 10px;
+}
+  
+.card-deck .card-footer {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+  

@@ -4,7 +4,7 @@ import 'firebase/compat/database';
 import firebaseConfig from '../backend/firebaseConfig';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import firebase from 'firebase/compat/app';
-
+import "../Style/Tasks.css";
 
 function UploadTask() {
   const [title, setTitle] = useState('');
@@ -39,16 +39,18 @@ function UploadTask() {
   };
 
   return (
-    <div className='upload-task-container'>
-      <div>
-        <label>Title:</label>
-        <input type='text' value={title} onChange={handleTitleChange} />
+    <div className='container'>
+      <div className='upload-task-container'>
+        <div>
+          <label>Title:</label>
+          <input type='text' value={title} onChange={handleTitleChange} />
+        </div>
+        <div>
+          <label>Description:</label>
+          <input type='text' value={description} onChange={handleDescriptionChange} />
+        </div>
+        <button onClick={handleUpload}>Upload Task</button>
       </div>
-      <div>
-        <label>Description:</label>
-        <input type='text' value={description} onChange={handleDescriptionChange} />
-      </div>
-      <button onClick={handleUpload}>Upload Task</button>
     </div>
   );
 }

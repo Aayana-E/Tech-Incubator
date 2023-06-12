@@ -15,7 +15,7 @@ function Login() {
       sessionStorage.setItem('isLoggedIn', 'true');
       console.log('Email:', email);
       console.log('Password:', password);
-      window.location.href = '/profile2';
+      window.location.href = '/profile';
     }
   };
 
