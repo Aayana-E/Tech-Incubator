@@ -28,3 +28,8 @@
     margin: 16px 0;
   }
   
+  .profile-list {
+    list-style: none;
+    padding: 0;
+  }
+  

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import firebaseConfig from '../backend/firebaseConfig';
-import 'firebase/compat/database';
 import firebase from 'firebase/compat/app';
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+import 'firebase/compat/database';
 
 function Profile() {
   const [userAttributes, setUserAttributes] = useState({});
@@ -13,15 +9,10 @@ function Profile() {
     const fetchUserAttributes = async () => {
       try {
         const database = firebase.database();
-        const userRef = database.ref('users').child('userId'); // Replace 'userId' with the actual user ID
+        const userRef = database.ref('users').child('-NXWr8on_NV9RCTchpnS'); // Replace with the actual user ID
         const snapshot = await userRef.once('value');
         const attributes = snapshot.val();
-
-        if (attributes) {
-          setUserAttributes(attributes);
-        } else {
-          console.error('User attributes not found');
-        }
+        setUserAttributes(attributes);
       } catch (error) {
         console.error('Error fetching user attributes:', error);
       }
@@ -31,32 +22,33 @@ function Profile() {
   }, []);
 
   return (
-    <div>
-      <h2>Profile</h2>
-      {Object.keys(userAttributes).length > 0 ? (
-        <div>
-          <h3>Attributes</h3>
-          <ul>
-            <li>
-              <strong>custom:Type:</strong> {userAttributes['custom:Type']}
-            </li>
-            <li>
-              <strong>email:</strong> {userAttributes.email}
-            </li>
-            <li>
-              <strong>name:</strong> {userAttributes.name}
-            </li>
-            <li>
-              <strong>picture:</strong> <img src={userAttributes.picture} alt="Profile Picture" />
-            </li>
-            <li>
-              <strong>sub:</strong> {userAttributes.sub}
-            </li>
-          </ul>
-        </div>
-      ) : (
-        <p>Loading user profile...</p>
-      )}
+    <div className="profile-container">
+      <h2 className="profile-heading">Profile</h2>
+      <div className="profile-card">
+        
+        {Object.keys(userAttributes).length > 0 ? (
+          <div>
+            <ul className="profile-list">
+              <li>
+                {userAttributes.name}
+              </li>
+              <li>
+                <strong>Email:</strong> {userAttributes.email}
+              </li>
+              <li>
+                <strong>Role:</strong> {userAttributes.type}
+              </li>
+              
+             
+              <li>
+               <img src={userAttributes.picture} alt="Profile Picture" className="profile-picture" />
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <p>Loading user profile...</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -13,6 +13,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 function Dashboard() {
   const [tasks, setTasks] = useState([]);
+  
 
   useEffect(() => {
     const tasksRef = firebase.database().ref('user-tasks');
@@ -20,6 +21,7 @@ function Dashboard() {
       const tasksData = snapshot.val();
       const tasksArray = Object.entries(tasksData || {}).map(([userId, userTasks]) => ({
         userId: userId,
+        name: '',
         tasks: Object.entries(userTasks || {}).map(([taskId, task]) => ({
           id: taskId,
           ...task,
@@ -27,6 +29,9 @@ function Dashboard() {
       }));
       setTasks(tasksArray);
     });
+
+  
+
 
     return () => {
       tasksRef.off();
