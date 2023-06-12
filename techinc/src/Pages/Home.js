@@ -4,7 +4,7 @@ import { Navbar } from '../Components/Navbar'
 function Home() {
   return (
     <div classname= "home-container">
-        <Navbar/>
+        {/*<Navbar/>*/}
     </div>
   )
 }

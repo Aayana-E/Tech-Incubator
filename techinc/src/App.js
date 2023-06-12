@@ -4,7 +4,7 @@ import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-//Home
+//Pages
 import Home from "./Pages/Home"
 import Signup from "./Pages/Signup"
 import Login from "./Pages/Login"
@@ -18,12 +18,16 @@ import About from "./Pages/About";
 import Test from "./Pages/test"
 
 
+//Components
+import { Navbar } from './Components/Navbar'
+
 
 function App() {
   return (
+    
     <Router>
-      <div className="App">
-        
+      <div className="app-container">
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
@@ -35,7 +39,7 @@ function App() {
           <Route path="/UploadTask" element={<UploadTask />} />
           <Route path="/Tasks" element={<Tasks />} />
           <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/About" element={<About/>} />
 
 
         </Routes>
