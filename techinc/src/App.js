@@ -14,7 +14,7 @@ import CompanyProfile from "./Pages/CompanyProfile";
 import UploadTask from "./Pages/UploadTask";
 import Tasks from "./Pages/Tasks";
 import Dashboard from "./Pages/Dashboard";
-
+import About from "./Pages/About";
 import Test from "./Pages/test"
 
 
@@ -35,6 +35,7 @@ function App() {
           <Route path="/UploadTask" element={<UploadTask />} />
           <Route path="/Tasks" element={<Tasks />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/About" element={<About />} />
 
 
         </Routes>
