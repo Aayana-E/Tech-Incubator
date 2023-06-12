@@ -5,13 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA_y2yg811zVik7Uzk7hUgO7Z0iFfE_H2E",
-  authDomain: "techincubator-5b340.firebaseapp.com",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: "https://techincubator-5b340-default-rtdb.firebaseio.com",
-  projectId: "techincubator-5b340",
-  storageBucket: "techincubator-5b340.appspot.com",
-  messagingSenderId: "73771252409",
-  appId: "1:73771252409:web:36dbdb7ca7ed3008a17968"
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
