@@ -9,7 +9,7 @@ function Profile() {
     const fetchUserAttributes = async () => {
       try {
         const database = firebase.database();
-        const userRef = database.ref('users').child('-NXWr8on_NV9RCTchpnS'); // Replace with the actual user ID
+        const userRef = database.ref('users').child('-NXjyzHCkrsthBqKqjg5'); // Replace with the actual user ID
         const snapshot = await userRef.once('value');
         const attributes = snapshot.val();
         setUserAttributes(attributes);
@@ -23,7 +23,7 @@ function Profile() {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-heading">Profile</h2>
+      {/*<h2 className="profile-heading">Profile</h2>*/}
       <div className="profile-card">
         
         {Object.keys(userAttributes).length > 0 ? (

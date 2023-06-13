@@ -1,0 +1,13 @@
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .welcome-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  

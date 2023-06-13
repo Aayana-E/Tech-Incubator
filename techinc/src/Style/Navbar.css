@@ -3,11 +3,11 @@ nav {
     align-items: center;
     justify-content: space-between;
     background-color: #f1f1f1;
-    padding: 10px;
+    padding: 5px;
   }
   
   .nav-logo-container img {
-    height: 50px;
+    height: 100px;
   }
   
   .nav-links-container {
@@ -18,11 +18,11 @@ nav {
   .nav-links-container ul {
     display: flex;
     flex-direction: row;
-    margin-left: auto; /* Align to the right */
+    margin-left: auto; /* Align to the right Very annnoying*/
   }
   
   .nav-links-container li {
-    margin-left: 10px;
+    margin-left: 2px;
   }
   
   .primary-button {
