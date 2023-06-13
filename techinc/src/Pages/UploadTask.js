@@ -42,6 +42,7 @@ function UploadTask() {
     <div className='container'>
       <div className='upload-task-container'>
         <div>
+          <h1>Upload Task</h1>
           <label>Title:</label>
           <input type='text' value={title} onChange={handleTitleChange} />
         </div>
